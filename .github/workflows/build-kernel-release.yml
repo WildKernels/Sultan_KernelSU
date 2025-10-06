@@ -71,8 +71,8 @@ jobs:
       # Get the Latest Tag from GitHub
       - name: Generate and Create New Tag
         run: |
-            # Generate tag based on current date and time in format vyear:month:day:hour:min:sec
-            NEW_TAG="v$(date +'%Y:%m:%d:%H:%M:%S')"
+            # Generate tag based on current date and time in format vYEAR/MONTH/DAY-HOUR.min.sec
+            NEW_TAG="v$(date +'%Y/%m/%d-%H.%M.%S')"
             
             # Output the new tag to be used
             echo "New tag: $NEW_TAG"
