@@ -20,7 +20,7 @@ on:
         type: string
   
 jobs:
-  build-kernel-sultan-kernelsu-susfs:
+  build-kernel-sultan-kernelsu:
     runs-on: ubuntu-latest
     steps:
       #- name: Maximize Build Space
@@ -61,11 +61,9 @@ jobs:
           echo "Cloning AnyKernel3 and other dependencies..."
           
           ANYKERNEL_BRANCH="sultan-${{ inputs.codename }}"
-          SUSFS_BRANCH="gki-${{ inputs.android_version }}-${{ inputs.kernel_version }}"
 
           # Debug print the branches
           echo "Using branch for AnyKernel3: $ANYKERNEL_BRANCH"
-          echo "Using branch for SUSFS: $SUSFS_BRANCH"
 
           # Clone repositories using the branch names
           git clone https://github.com/TheWildJames/AnyKernel3.git -b "$ANYKERNEL_BRANCH"
@@ -126,7 +124,7 @@ jobs:
           cd ./AnyKernel3
 
           # Zip the files in the AnyKernel3 directory with a new naming convention
-          ZIP_NAME="${{ inputs.codename }}_A16_Sultan_WKSU_SUSFS.zip"
+          ZIP_NAME="${{ inputs.codename }}_A16_Sultan_WKSU.zip"
           echo "Creating zip file $ZIP_NAME..."
           zip -r "../$ZIP_NAME" ./*
           
